@@ -6,9 +6,9 @@
 	<li class="list-group-item">
 		<%= question.title %>
 		<%= link_to 'Edit', edit_question_path(question) %>
-  		<%= link_to 'Destroy', question_path(question), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  		<%= link_to 'Destroy', question_path(question), data: {:confirm => 'Are you sure?'}, :method => :delete %><hr>
   		<% question.answers.each do  |ans| %>
-  			<%= ans.person_name %> || <%= ans.answer %><br>
+  			<b><%= ans.person_name %></b> : <%= ans.answer %><br>
   		<% end %>
 	</li>
 <% end %>

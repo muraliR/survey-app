@@ -1,0 +1,8 @@
+<%= form_for @question, url: create_question_question_path(@survey), html: { style: "width:25%;"}  do |f| %>
+  <div class="form-group">
+    <label>Enter Question for <%= @survey.title %></label>
+    <%= f.text_field :title, class: "form-control", placeholder: "Enter Question" %>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+<% end %>
+
