@@ -21,6 +21,8 @@ class SurveysController < ApplicationController
 	end
 
 	def show
+		# get the questions collections to show in survey show page
+		# to avoid N+1 query, doing eager_load
 		@questions = @survey.questions.eager_load(:answers)
 	end
 

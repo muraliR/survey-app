@@ -8,11 +8,11 @@
 
 
 unless User.find_by_email("murali").present?
-	user = User.new(email: "murali@gmail.com", password: "hello123", password_confirmation: "hello123", role: "admin")
+	user = User.new(email: "murali@gmail.com", password: "hello123", password_confirmation: "hello123", role: "admin", authentication_token: Devise.friendly_token(length = 20))
 	user.save!
 end
 
 unless User.find_by_email("krishna").present?
-	user = User.new(email: "krishna@gmail.com", password: "hello123", password_confirmation: "hello123", role: "taker")
+	user = User.new(email: "krishna@gmail.com", password: "hello123", password_confirmation: "hello123", role: "taker", authentication_token: Devise.friendly_token(length = 20))
 	user.save!
 end

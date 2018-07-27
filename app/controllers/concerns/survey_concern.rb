@@ -2,7 +2,7 @@ module SurveyConcern
   extend ActiveSupport::Concern
 
   included do
-    before_action :authenticate_user!
+    before_action :authenticate_user!, unless: -> { request.format.json? }
   end
 
   def index

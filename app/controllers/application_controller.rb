@@ -3,13 +3,18 @@ class ApplicationController < ActionController::Base
 
    def is_admin
 		if !current_user || current_user.role != "admin"
-			return render text: "Not Authorised", status: 404
+			return redirect_to "/"
 		end
 	end
 
 	def is_taker
-		if !current_user || current_user.role != "taker"
-			return render text: "Not Authorised", status: 404
-		end
+
+		#for api check the token from header
+		#this is the basic implementation of api authentication.
+		#TODO Jsonwebtoken
+		@current_user = User.find_by(authentication_token: request.headers['X-Auth-Token']) 
+    	if !@current_user.present? || @current_user.role != "taker"
+        	return render json: {error: I18n.t('errors.invalid_user')}, status: 422
+    	end
 	end
 end

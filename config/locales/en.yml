@@ -34,3 +34,6 @@ en:
     saved: "Successfully Saved"
     updated: "Successfully Updated"
     deleted: "Successfully Deleted"
+  errors:
+    invalid_user: "Invalid User"
+    invalid_question: "Invalid Question Id"

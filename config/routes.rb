@@ -11,4 +11,10 @@ Rails.application.routes.draw do
   		delete :detroy_question
   	end
   end
+
+  namespace :api, defaults: { format: 'json' } do
+  	resources :surveys
+  	post '/surveys/:id/question', to: 'questions#create'
+  	delete '/surveys/:id/question/:question_id/destroy', to: 'questions#destroy'
+  end
 end

@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
 
 	include SurveyConcern
 
-	before_action :get_survey, only: [:add,:create_question]
+	before_action :get_survey, only: [:add,:create_question] # this method implemented in controllers/concern/survey_concern.rb
 	before_action :get_question, only: [:destroy, :edit, :update]
 	before_action :filter_params, only: [:create_question,:update]
 
