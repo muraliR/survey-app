@@ -1,0 +1,10 @@
+<ul class="list-group">
+  <% @surveys.each do |survey| %>
+  	<li class="list-group-item">
+  		<%= survey.title %>
+  		<%= link_to 'Edit', edit_survey_path(survey) %>
+  		<%= link_to 'View', survey_path(survey) %>
+  		<%= link_to 'Destroy', survey_path(survey), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  	</li>
+ 	<% end %>
+</ul>

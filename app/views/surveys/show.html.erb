@@ -1,0 +1,17 @@
+<h1><%= @survey.title %></h1>
+
+<%= link_to 'Add Question', add_question_path(@survey) %>
+<ul class="list-group">
+<% @questions.each do |question| %>
+	<li class="list-group-item">
+		<%= question.title %>
+		<%= link_to 'Edit', edit_question_path(question) %>
+  		<%= link_to 'Destroy', question_path(question), data: {:confirm => 'Are you sure?'}, :method => :delete %>
+  		<% question.answers.each do  |ans| %>
+  			<%= ans.person_name %> || <%= ans.answer %><br>
+  		<% end %>
+	</li>
+<% end %>
+</ul>
+
+
